@@ -36,7 +36,8 @@ app.use(mountPath, api);
 
 // Parse Server plays nicely with the rest of your web routes
 app.get('/', function(req, res) {
-  res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub!');
+  res.status(200).send('I dream of being a website.  Please star the parse-server repo on GitHub! #' + (process.env.CLOUD_CODE_MAIN || __dirname + '/cloud/main.js') + "#" + process.env.APP_ID
+  + "#" + process.env.MASTER_KEY + "#" + process.env.SERVER_URL);
 });
 
 // There will be a test page available on the /test path of your server url
